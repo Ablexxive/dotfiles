@@ -44,6 +44,7 @@ noremap <leader>a $
 "Copy and paste (neovim)
 vnoremap  <leader>y  "+y
 vnoremap  <leader>p  "+p
+nmap <silent> <space>i :ALEInfo<CR>
 
 nmap <silent> L <C-w>l
 nmap <silent> H <C-w>h
@@ -82,8 +83,8 @@ nmap <silent> <space>j <Plug>(ale_next_wrap)
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 "let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
+"let g:ale_set_quickfix = 1
+"let g:ale_open_list = 1
 
 " Set this if you want to.
 " This can be useful if you are combining ALE with
