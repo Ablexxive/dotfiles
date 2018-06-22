@@ -24,6 +24,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'luochen1990/rainbow'
 let g:rainbow_active=1
 Plug 'w0rp/ale'
+Plug 'leafgarland/typescript-vim'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 
