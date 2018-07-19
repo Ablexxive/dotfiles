@@ -4,3 +4,8 @@
 * One must have a good balance between the perceived challenges of the task at hand and their own perceived skills. One must have confidence in one's ability to complete the task at hand.
 
 **Fluency** + **immediacy** + **autonomy** + *a little bit of challenge* = **fun**
+
+
+# Experiments
+1. What question do I want answered?
+2. What data will help me believe the answer?
