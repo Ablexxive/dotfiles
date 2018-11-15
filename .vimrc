@@ -26,7 +26,13 @@ let g:rainbow_active=1
 Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'davidhalter/jedi-vim'
+Plug 'ervandew/supertab'
 call plug#end()
+
+" Jedi-vim and supertab are used for autocompletion
+" This next line prevents a seprate pane from opening up with documentation
+autocmd FileType python setlocal completeopt-=preview
 
 
 "Show hidden files in NerdTree
