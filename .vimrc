@@ -57,7 +57,7 @@ nmap <silent> <space>i :ALEInfo<CR>
 nmap <silent> L <C-w>l
 nmap <silent> H <C-w>h
 nmap <silent> J <C-w>j
-nmap <silent> K <C-w>k
+map <silent> K <C-w>k
 
 "Open split vertical pannel + horizontal
 nnoremap <silent> vv <C-w>v
