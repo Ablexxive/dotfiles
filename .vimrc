@@ -21,6 +21,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 Plug 'Lokaltog/vim-easymotion'
 Plug 'editorconfig/editorconfig'
 Plug 'Raimondi/delimitMate'
+Plug 'sheerun/vim-polyglot'
 Plug 'luochen1990/rainbow'
 let g:rainbow_active=1
 Plug 'w0rp/ale'
@@ -28,6 +29,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
+Plug 'heavenshell/vim-pydocstring'
 call plug#end()
 
 " Jedi-vim and supertab are used for autocompletion

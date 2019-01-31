@@ -13,3 +13,9 @@ alias nbstrip_jq="jq --indent 1 \
     | .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
     | .cells[].metadata = {} \
     '"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+alias l='ls -G'
+alias k=kubectl
+eval $(thefuck --alias)
