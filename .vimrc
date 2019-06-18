@@ -2,6 +2,7 @@ set number
 set background=dark
 syntax on
 imap jj <Esc>
+imap yy <Esc>:w<cr>
 
 "If plug is not installed, download and install plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -30,6 +31,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'heavenshell/vim-pydocstring'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " Jedi-vim and supertab are used for autocompletion
@@ -45,6 +47,7 @@ nmap " :ALEToggle<CR>
 "Buffer Search for Ctrl-P
 nmap ; :CtrlPBuffer<cr>
 
+map <space> viw
 
 let mapleader = ","
 nmap <leader>d :bd<cr>
