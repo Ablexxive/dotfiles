@@ -20,7 +20,7 @@ Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 Plug 'Lokaltog/vim-easymotion'
-Plug 'editorconfig/editorconfig'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
 Plug 'luochen1990/rainbow'
@@ -37,6 +37,7 @@ call plug#end()
 " Jedi-vim and supertab are used for autocompletion
 " This next line prevents a seprate pane from opening up with documentation
 autocmd FileType python setlocal completeopt-=preview
+autocmd BufWritePre *.txt %s/\s\+$//e
 
 
 "Show hidden files in NerdTree
@@ -86,7 +87,11 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 set tabstop=4 shiftwidth=4 expandtab
 
 " ALE
-let g:ale_linters = {'python':['pylint']}
+let g:ale_linters = {
+            \ 'rust': [ 'rls' ],
+            \ 'python': [ 'pylint'],
+            \}
+let g:ale_rust_rls_toolchain = ''
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 nmap <silent> <space>k <Plug>(ale_previous_wrap)
