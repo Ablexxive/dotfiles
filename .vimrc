@@ -25,40 +25,32 @@ Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
 Plug 'luochen1990/rainbow'
 let g:rainbow_active=1
-Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'davidhalter/jedi-vim'
-Plug 'ervandew/supertab'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'heavenshell/vim-pydocstring'
-Plug 'rust-lang/rust.vim'
+Plug 'romainl/vim-dichromatic'
+Plug 'rakr/vim-one'
 call plug#end()
-
-" Jedi-vim and supertab are used for autocompletion
-" This next line prevents a seprate pane from opening up with documentation
-autocmd FileType python setlocal completeopt-=preview
-autocmd BufWritePre *.txt %s/\s\+$//e
-
 
 "Show hidden files in NerdTree
 let NERDTreeShowHidden=1
-
 nmap ' :NERDTreeToggle<CR>
-nmap " :ALEToggle<CR>
+"
 "Buffer Search for Ctrl-P
 nmap ; :CtrlPBuffer<cr>
-
-map <space> viw
 
 let mapleader = ","
 nmap <leader>d :bd<cr>
 nmap <leader>w :w<cr>
 noremap <leader>i ^
 noremap <leader>a $
+
 "Copy and paste (neovim)
 vnoremap  <leader>y  "+y
 vnoremap  <leader>p  "+p
-nmap <silent> <space>i :ALEInfo<CR>
+
+map <space> viw
 
 nmap <silent> L <C-w>l
 nmap <silent> H <C-w>h
@@ -76,36 +68,40 @@ set ruler
 
 " Search Rules
 set gdefault
-
-" Sets gray color for line limits - py
-set colorcolumn=121
-let &colorcolumn=join(range(121,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+" toggle to turn highlighting on and off
+map <leader>/ :set hlsearch!<cr>
 
 " Tabs to Spaces -
 " To Set differnt tab/space behavior append 'autocmd FileType <python/haskell>'
 set tabstop=4 shiftwidth=4 expandtab
 
-" ALE
-let g:ale_linters = {
-            \ 'rust': [ 'rls' ],
-            \ 'python': [ 'pylint'],
-            \}
-let g:ale_rust_rls_toolchain = ''
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-nmap <silent> <space>k <Plug>(ale_previous_wrap)
-nmap <silent> <space>j <Plug>(ale_next_wrap)
-" This will not run linter when you open a file. To run it, simply save the
-" file.
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
-"let g:ale_set_loclist = 0
-"let g:ale_set_quickfix = 1
-"let g:ale_open_list = 1
+" https://github.com/neoclide/coc.nvim
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Set this if you want to.
-" This can be useful if you are combining ALE with
-" some other plugin which sets quickfix errors, etc.
-"let g:ale_keep_list_window_open = 1
-"let g:airline#extensions#ale#enabled = 1
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gj <Plug>(coc-diagnostic-next)
+nmap <silent> gk <Plug>(coc-diagnostic-prev)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
+" Color Scheme - https://github.com/romainl/vim-dichromatic
+colorscheme dichromatic
