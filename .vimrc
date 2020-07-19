@@ -105,3 +105,5 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Color Scheme - https://github.com/romainl/vim-dichromatic
 colorscheme dichromatic
+
+let g:rustfmt_autosave = 1
