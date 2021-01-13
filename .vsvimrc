@@ -1,5 +1,4 @@
 set vsvim_useeditordefaults
-syntax on
 
 " Search
 set ignorecase
@@ -9,10 +8,7 @@ set smartcase
 
 
 set number
-set background=dark
 set laststatus=2
-set title
-set ruler
 " Search Rules
 set gdefault
 " toggle to turn highlighting on and off
