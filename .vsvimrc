@@ -1,0 +1,41 @@
+set vsvim_useeditordefaults
+syntax on
+
+" Search
+set ignorecase
+set incsearch
+set magic
+set smartcase
+
+
+set number
+set background=dark
+set laststatus=2
+set title
+set ruler
+" Search Rules
+set gdefault
+" toggle to turn highlighting on and off
+map <leader>/ :set hlsearch!<cr>
+
+
+" Keybindings
+imap jj <Esc>
+imap yy <Esc>:w<cr>
+
+let mapleader = ","
+nmap <leader>d :bd<cr>
+nmap <leader>w :w<cr>
+noremap <leader>i ^
+noremap <leader>a $
+
+map <space> viw
+
+nmap <silent> L <C-w>l
+nmap <silent> H <C-w>h
+nmap <silent> J <C-w>j
+map <silent> K <C-w>k
+
+"Open split vertical pannel + horizontal
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> vs <C-w>S
