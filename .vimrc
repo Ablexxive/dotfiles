@@ -31,6 +31,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'heavenshell/vim-pydocstring'
 Plug 'romainl/vim-dichromatic'
 Plug 'rakr/vim-one'
+Plug 'ron-rs/ron.vim'
 call plug#end()
 
 "Show hidden files in NerdTree
@@ -73,7 +74,8 @@ map <leader>/ :set hlsearch!<cr>
 
 " Tabs to Spaces -
 " To Set differnt tab/space behavior append 'autocmd FileType <python/haskell>'
-set tabstop=4 shiftwidth=4 expandtab
+"set tabstop=4 shiftwidth=4 expandtab
+autocmd FileType *.rs set tabstop=4 shiftwidth=4 expandtab
 
 " https://github.com/neoclide/coc.nvim
 " Use tab for trigger completion with characters ahead and navigate.
@@ -107,3 +109,6 @@ nmap <silent> gr <Plug>(coc-references)
 colorscheme dichromatic
 
 let g:rustfmt_autosave = 1
+
+" Remove trailing white spaces in python files.
+autocmd BufWritePre *.py %s/\s\+$//e
